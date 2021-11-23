@@ -29,6 +29,7 @@ public class Resource {
 	private Timestamp createDate;
 	private Timestamp updateDate;
 	private int isDeleted;
-	
+	private String created_by;
+	private String updated_by;
 	
 }

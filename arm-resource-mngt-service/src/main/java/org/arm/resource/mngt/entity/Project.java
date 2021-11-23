@@ -10,13 +10,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 @Entity
-@Setter
-@Getter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
@@ -35,8 +35,19 @@ public class Project {
 	private Timestamp createDate;
 	private Timestamp updateDate;
 	private int isDeleted;
+	private String created_by;
+	private String updated_by;
 	
 	@ManyToOne
 	@JoinColumn(name="campaign_id")
 	private Campaign campaign;
+
+	@Override
+	public String toString() {
+		return "Project [projectName=" + projectName + ", projectOwner=" + projectOwner + ", startDate=" + startDate
+				+ ", endDate=" + endDate + ", priority=" + priority + ", status=" + status + ", createDate="
+				+ createDate + ", updateDate=" + updateDate + ", isDeleted=" + isDeleted + ", created_by=" + created_by
+				+ "]";
+	}
+	
 }

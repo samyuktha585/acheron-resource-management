@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,6 +19,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
+
 public class Campaign {
 	@Id
 	private int campaignId;
@@ -32,5 +34,7 @@ public class Campaign {
 	private Timestamp createDate;
 	private Timestamp updateDate;
 	private int isDeleted;
+	private String created_by;
+	private String updated_by;
 	
 }

@@ -38,6 +38,8 @@ public class Task {
 	private Timestamp createDate;
 	private Timestamp updateDate;
 	private int isDeleted;
+	private String created_by;
+	private String updated_by;
 	@ManyToOne
 	@JoinColumn(name="project_id")
 	private Project project;
