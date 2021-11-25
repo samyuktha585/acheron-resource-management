@@ -2,27 +2,24 @@ package org.arm.resource.mngt.entity;
 
 import java.sql.Timestamp;
 import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
+
 
 @Entity
 @Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
+//@ToString
 public class Campaign {
 	@Id
 	private int campaignId;
@@ -37,7 +34,8 @@ public class Campaign {
 	private Timestamp createDate;
 	private Timestamp updateDate;
 	private int isDeleted;
-	
+	private String created_by;
+	private String updated_by;
 	@OneToMany(mappedBy = "campaign")
 	@JsonManagedReference
 	private List<Project> projects;
@@ -107,6 +105,13 @@ public class Campaign {
 	}
 	public void setProjects(List<Project> projects) {
 		this.projects = projects;
+	}
+	@Override
+	public String toString() {
+		return "Campaign [campaignId=" + campaignId + ", campaignName=" + campaignName + ", campaignOwner="
+				+ campaignOwner + ", startDate=" + startDate + ", endDate=" + endDate + ", priority=" + priority
+				+ ", status=" + status + ", createDate=" + createDate + ", updateDate=" + updateDate + ", isDeleted="
+				+ isDeleted + "]";
 	}
 	
 }
