@@ -8,6 +8,6 @@ import org.mapstruct.factory.Mappers;
 @Mapper
 public interface CampaignMapper {
 	CampaignMapper INSTANCE = Mappers.getMapper(CampaignMapper.class);
-	CampaignVO fromCampaign(Campaign camaign);
+	CampaignVO fromCampaign(Campaign campaign);
 	
 }

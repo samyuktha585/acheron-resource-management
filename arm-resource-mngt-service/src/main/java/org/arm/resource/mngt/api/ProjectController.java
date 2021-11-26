@@ -42,7 +42,7 @@ public class ProjectController {
 			ProjectVO vo = mapper.fromProject(project);
 			projectVO.add(vo);
 		}
-
+		projectVO.forEach(System.out::println);
 		return ResponseEntity.status(HttpStatus.OK).headers(headers).body(projectVO);
 	}
 

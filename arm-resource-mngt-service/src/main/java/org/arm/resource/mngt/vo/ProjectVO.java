@@ -29,7 +29,7 @@ import lombok.ToString;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
+//@ToString
 public class ProjectVO implements Serializable {
 
 	/**
@@ -46,10 +46,7 @@ public class ProjectVO implements Serializable {
 	private Priority priority;
 	@Enumerated(EnumType.STRING)
 	private Status status;
-	private Timestamp createDate;
-	private Timestamp updateDate;
-	private int isDeleted;
-
+	
 	@ManyToOne
 	@JoinColumn(name = "campaign_id")
 	@JsonBackReference
@@ -57,7 +54,7 @@ public class ProjectVO implements Serializable {
 
 	@OneToMany(mappedBy = "project")
 	@JsonManagedReference
-	private List<Task> tasks;
+	private List<Task> task;
 
 	public int getProjectId() {
 		return projectId;
@@ -115,44 +112,19 @@ public class ProjectVO implements Serializable {
 		this.status = status;
 	}
 
-	public Timestamp getCreateDate() {
-		return createDate;
-	}
-
-	public void setCreateDate(Timestamp createDate) {
-		this.createDate = createDate;
-	}
-
-	public Timestamp getUpdateDate() {
-		return updateDate;
-	}
-
-	public void setUpdateDate(Timestamp updateDate) {
-		this.updateDate = updateDate;
-	}
-
-	public int getIsDeleted() {
-		return isDeleted;
-	}
-
-	public void setIsDeleted(int isDeleted) {
-		this.isDeleted = isDeleted;
-	}
-
 	public Campaign getCampaign() {
 		return campaign;
 	}
 
 	public void setCampaign(Campaign campaign) {
-		this.campaign = campaign;
+		this.campaign= campaign;
 	}
 
 	public List<Task> getTasks() {
-		return tasks;
+		return task;
 	}
 
 	public void setTasks(List<Task> tasks) {
-		this.tasks = tasks;
+		this.task = tasks;
 	}
-
 }

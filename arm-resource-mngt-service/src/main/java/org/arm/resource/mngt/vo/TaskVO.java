@@ -2,6 +2,7 @@ package org.arm.resource.mngt.vo;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -11,16 +12,19 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
 import org.arm.resource.mngt.entity.Priority;
-import org.arm.resource.mngt.entity.Project;
 import org.arm.resource.mngt.entity.Resource;
 import org.arm.resource.mngt.entity.Status;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Setter
@@ -52,7 +56,7 @@ public class TaskVO implements Serializable{
 	@JsonBackReference
 	@ManyToOne
 	@JoinColumn(name="project_id")
-	private Project project;
+	private ProjectVO project;
 	
 	@JsonManagedReference
 	@ManyToOne
@@ -123,11 +127,11 @@ public class TaskVO implements Serializable{
 		this.status = status;
 	}
 
-	public Project getProject() {
+	public ProjectVO getProject() {
 		return project;
 	}
 
-	public void setProject(Project project) {
+	public void setProject(ProjectVO project) {
 		this.project = project;
 	}
 
@@ -138,13 +142,4 @@ public class TaskVO implements Serializable{
 	public void setResource(Resource resource) {
 		this.resource = resource;
 	}
-
-	@Override
-	public String toString() {
-		return "TaskVO [taskId=" + taskId + ", taskName=" + taskName + ", taskOwner=" + taskOwner + ", startDate="
-				+ startDate + ", endDate=" + endDate + ", duration=" + duration + ", priority=" + priority + ", status="
-				+ status + ", project=" + project + ", resource=" + resource + "]";
-	}
-
-	
 }
